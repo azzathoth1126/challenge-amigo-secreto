@@ -2,11 +2,28 @@
 
 let amigos = [];
 
+function actualizarLista() {
+
+    let lista = document.getElementById("listaAmigos");
+    
+    let nuevoElemento = document.createElement("li");
+
+    nuevoElemento.textContent = amigos[amigos.length - 1];
+
+    lista.appendChild(nuevoElemento);
+
+    return;
+}
+
+
+
 function agregarAmigo() {
 
     let nombreAmigo = document.getElementById('amigo').value;
 
     validacionCampo(nombreAmigo);
+    
+    actualizarLista();
 
     limpiarCaja();
 
@@ -26,7 +43,7 @@ function validacionCampo(nombre) {
         return;
     } else {
         amigos.push(nombre);
-        //console.log(amigos);
+        console.log(amigos);
     }
 
     return;
