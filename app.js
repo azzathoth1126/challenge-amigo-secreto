@@ -4,6 +4,8 @@ let amigos = [];
 
 function actualizarLista() {
 
+    
+
     let lista = document.getElementById("listaAmigos");
     
     let nuevoElemento = document.createElement("li");
@@ -22,8 +24,6 @@ function agregarAmigo() {
     let nombreAmigo = document.getElementById('amigo').value;
 
     validacionCampo(nombreAmigo);
-    
-    actualizarLista();
 
     limpiarCaja();
 
@@ -44,6 +44,7 @@ function validacionCampo(nombre) {
     } else {
         amigos.push(nombre);
         console.log(amigos);
+        actualizarLista();
     }
 
     return;
