@@ -3,9 +3,6 @@
 let amigos = [];
 
 function actualizarLista() {
-
-    
-
     let lista = document.getElementById("listaAmigos");
     
     let nuevoElemento = document.createElement("li");
@@ -16,7 +13,6 @@ function actualizarLista() {
 
     return;
 }
-
 
 
 function agregarAmigo() {
