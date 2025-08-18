@@ -16,7 +16,6 @@ function actualizarLista() {
 
 
 function agregarAmigo() {
-
     let nombreAmigo = document.getElementById('amigo').value;
 
     validacionCampo(nombreAmigo);
@@ -37,11 +36,26 @@ function validacionCampo(nombre) {
     if (nombre == ''){
         alert('Ingresa un nombre valido');
         return;
-    } else {
+
+    } else if (repetidos(nombre)) {
+        //console.log(amigos);
+
         amigos.push(nombre);
-        console.log(amigos);
         actualizarLista();
+
     }
 
     return;
+}
+
+
+function repetidos(nombre) {
+    for (let i = 0; i < amigos.length; i++){
+        if (nombre == amigos[i]) {
+            alert('Nombre duplicado.');
+            return false;
+        }
+    }
+
+    return true;
 }
