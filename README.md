@@ -10,7 +10,11 @@ Este es un pequeño proyecto que eligue aleatoriamente un nombre, siguiendo esto
 
 <ul>
   Introducir en la caja algun nombre de una persona.\n
-  Presionar el boton Añadir.
+</ul>
+<ul>
+    Presionar el boton Añadir.
+</ul>
+<ul>
   Presiona el boton Sortear amigo
 </ul>
 
@@ -23,6 +27,10 @@ Los siguiente es una lista de los detalles a corregir para siguientes versiones:
 
 <ul>
   Aceptar solo nombres y no numeros.
+</ul>
+<ul>
   Aparece en pantalla el mensaje "El gandaor es: " y abajo el nombre del seleccionado.
+</ul>
+<ul>
   Mejorar código.
 </ul>
