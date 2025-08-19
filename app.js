@@ -2,9 +2,10 @@
 
 // Lista de nombres
 let amigos = [];
+let ganador = [];
 
 // Actualiza la lista en pantalla
-function actualizarLista() {
+function actualizarLista(listaUsuario) {
 
     //Selecciona la lista donde agregamos nombres por el id
     let lista = document.getElementById("listaAmigos");
@@ -13,9 +14,9 @@ function actualizarLista() {
     lista.innerHTML = "";
 
     //Agrega a la lista los nombres guardados en un arreglo
-    for (let i = 0; i < amigos.length; i++) {
+    for (let i = 0; i < listaUsuario.length; i++) {
         let nuevoElemento = document.createElement("li");
-         nuevoElemento.textContent = amigos[i];
+         nuevoElemento.textContent = listaUsuario[i];
          lista.appendChild(nuevoElemento);
     }
 
@@ -52,8 +53,43 @@ function validacionCampo(nombre) {
         //Agrea el nombre a la lista y la actualiza en pantalla
         //console.log(amigos);
         amigos.push(nombre);
-        actualizarLista();
+        actualizarLista(amigos);
 
+    }
+
+    return;
+}
+
+
+// Elige a un amigo aleatoriamente
+function sortearAmigo() {
+    
+    if (amigos.length < 3) {
+        alert('Número insuficiente de participantes');
+        agregarAmigo();
+    } else {
+        let numAleatorio = Math.floor(Math.random() * (amigos.length) -1);
+
+        let elementoHTML = document.querySelector('p');
+        elementoHTML.innerHTML = 'El ganador es: \n\n';
+
+        ganador.push(amigos[numAleatorio]);
+
+        actualizarLista(ganador);
+
+        limpiarLista();
+
+    }
+    
+    return;    
+}
+
+
+function limpiarLista() {
+
+    while(amigos.length > 0) {
+        amigos.pop();
+        console.log(amigos);
     }
 
     return;
