@@ -5,10 +5,10 @@ let amigos = [];
 let ganador = [];
 
 // Actualiza la lista en pantalla
-function actualizarLista(listaUsuario) {
+function actualizarLista(listaUsuario, lugar) {
 
     //Selecciona la lista donde agregamos nombres por el id
-    let lista = document.getElementById("listaAmigos");
+    let lista = document.getElementById(lugar);
 
     //limpia la lista
     lista.innerHTML = "";
@@ -51,9 +51,8 @@ function validacionCampo(nombre) {
 
     } else {
         //Agrea el nombre a la lista y la actualiza en pantalla
-        //console.log(amigos);
         amigos.push(nombre);
-        actualizarLista(amigos);
+        actualizarLista(amigos, "listaAmigos");
 
     }
 
@@ -64,18 +63,25 @@ function validacionCampo(nombre) {
 // Elige a un amigo aleatoriamente
 function sortearAmigo() {
     
+    //Verifica que el sorteo cuente con 3 participantes m´´inimo
     if (amigos.length < 3) {
         alert('Número insuficiente de participantes');
         agregarAmigo();
+
     } else {
+        //Elige el numero del participante al azar
         let numAleatorio = Math.floor(Math.random() * (amigos.length) -1);
 
-        let elementoHTML = document.querySelector('p');
-        elementoHTML.innerHTML = 'El ganador es: \n\n';
-
+        //Mete el nombre del ganador en una nueva lista que se mostrar
         ganador.push(amigos[numAleatorio]);
 
-        actualizarLista(ganador);
+        actualizarLista(ganador, 'resultado');
+        
+        //textoPantalla('texto__parrafo', 'El ganador es: \n\n');
+        textoPantalla('ganador', ganador);
+
+        console.log('El ganador fue')
+        console.log(ganador);
 
         limpiarLista();
 
@@ -85,12 +91,23 @@ function sortearAmigo() {
 }
 
 
+// Limpia la lista en pantalla para un nuevo sorteo
 function limpiarLista() {
 
     while(amigos.length > 0) {
         amigos.pop();
-        console.log(amigos);
+
     }
+
+    return;
+}
+
+
+// Muestra al ganador en pantalla
+function textoPantalla(elemento, texto) {
+
+    let elementoHTML = document.getElementsByClassName(elemento);
+    elementoHTML.innerHTML = texto;
 
     return;
 }
